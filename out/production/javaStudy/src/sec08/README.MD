@@ -53,7 +53,7 @@
    - 객체를 넣을때는 정렬이 되어야 하기때문에 그냥 넣으면 안되고 Comparable 또는 Comparator 둘중 하나를 사용해야한다.
 
 
-### 2. 맵
+### 3. 맵
 - 키와 값의 쌍을 이루고 있는 자료구조이다
 - 자료형은 다양하게 사용이 가능하다
 - 키값은 중복될수 없다 하지만 value 값은 중복되어도 상관이 없다
@@ -66,3 +66,14 @@
    - 정렬과는 무관하고 빠른 접근 시에는 해시맵, 키 순으로 정렬 필요시에 트리맵
    - HashMap : 키의 해시 코드 / 키로 저장한다.
    - TreeMap : 키를 트리 형태로 저장한다.
+
+<br>
+
+### 4. Comparable & Comparator `comparatorcomparable 의 파일에 Main.java 를 확인`
+- 둘 모두 인터페이스이다 굉장히 중요하다 인터페이스이다.
+- Comparable : 자신과 다른 객체를 비교
+  - 숫자 클래스, Boolean, String, Date, BigDecimal, BigInteger 등
+- Comparator : 비교의 주체 두 개를 주어주고 비교한다
+  - 컬렉션에서는 정렬의 기준으로 사용된다
+  - Arrays 의 sort 메소드에서 사용되는 것이다. 
+  - TreeSet, TreeMap 의 생성자에서 활용된다. Comparator 를 통해 Tree 가 정렬된다는 것이다.
