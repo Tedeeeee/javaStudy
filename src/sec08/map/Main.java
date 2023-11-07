@@ -98,6 +98,56 @@ public class Main {
             System.out.println(u + " : " + atkrHrsHMap.get(u));
         }
 
-        
+        // getOrDefault : 키에 해당하는 쌍(value)가 없을 시에 지정한 디폴트 값으로 반환한다.
+        String defName = numNameHMap.getOrDefault(10, "김대타");
+        Horse defHorse = atkrHrsHMap.getOrDefault(new MagicKnight(Side.BLUE), new Horse(40));
+
+        // Entry 인터페이스 : 맵의 각 요소, 키와 값을 가진다
+        Set<Map.Entry<Integer, String>> numNameES = numNameHMap.entrySet();
+        for (var entry : numNameES) {
+            int key = entry.getKey();
+            String value = entry.getValue();
+            System.out.printf("k : %d, v : %s%n", key, value);
+            System.out.println(entry);
+        }
+
+        // remove, clear, isEmpty
+
+        // 지워진 value 를 반환한다.
+        String removed1 = numNameHMap.remove(1);
+
+        // 지워졌는지 안지워졌는지를 반환한다.
+        boolean removed2 = numNameHMap.remove(2, "황대장");
+
+        boolean isEmpty1 = nameHeightHMap.isEmpty();
+        nameHeightHMap.clear();
+        boolean isEmpty2 = nameHeightHMap.isEmpty();
+
+        TreeMap<Integer, String[]> classKidsTMap = new TreeMap<>();
+        classKidsTMap.put(3, new String[] {"서아", "이준", "아린"});
+        classKidsTMap.put(9, new String[] {"하윤", "서준", "지호"});
+        classKidsTMap.put(1, new String[] {"이서", "하준", "아윤"});
+        classKidsTMap.put(7, new String[] {"지안", "은우", "예준"});
+        classKidsTMap.put(5, new String[] {"서윤", "시우", "하은"});
+
+        // 트리 전용 메소드 ( 이는 Set 에서도 볼 수 있었다 )
+        // Tree 가 붙으면 정렬이 된다. ( 오름차순 기준 )
+        int firstKey = classKidsTMap.firstKey();
+        int lastKey = classKidsTMap.lastKey();
+
+        Map.Entry<Integer, String[]> firstEntry = classKidsTMap.firstEntry();
+        Map.Entry<Integer, String[]> lastEntry = classKidsTMap.lastEntry();
+
+        // 없으면 더 높은 값
+        int ceil4 = classKidsTMap.ceilingKey(4);
+        // 없으면 더 낮은 값
+        int floor4 = classKidsTMap.floorKey(4);
+        Map.Entry<Integer, String[]> floor = classKidsTMap.floorEntry(4);
+
+        Map.Entry<Integer, String[]> pollF1 = classKidsTMap.pollFirstEntry();
+        Map.Entry<Integer, String[]> pollF2 = classKidsTMap.pollFirstEntry();
+        Map.Entry<Integer, String[]> pollL1 = classKidsTMap.pollLastEntry();
+        Map.Entry<Integer, String[]> pollL2 = classKidsTMap.pollLastEntry();
+
     }
 }
