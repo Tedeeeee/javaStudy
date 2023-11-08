@@ -77,3 +77,13 @@
   - 컬렉션에서는 정렬의 기준으로 사용된다
   - Arrays 의 sort 메소드에서 사용되는 것이다. 
   - TreeSet, TreeMap 의 생성자에서 활용된다. Comparator 를 통해 Tree 가 정렬된다는 것이다.
+
+<br>
+
+### 5. Iterator `iterator 의 파일에 Main.java 를 확인`
+- java.lang.Iterable 인터페이스 구현 클래스에서 사용한다
+- 컬렉션을 순회하는데사용한다
+  - 특정 기준의 요소들 제거에 유용하다
+  - 순회 상태가 저장될 필요가 있을 때 유용하다.
+
+- **Collection 을 다룰때는 동시성을 주의해야한다. 때문에 우리가 사용하는 forEach 문을 주의해서 사용해야 한다.**
