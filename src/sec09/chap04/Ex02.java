@@ -103,6 +103,8 @@ public class Ex02 {
         IntStream fromRange1 = IntStream.range(10, 20); // 20은 포함되지 않는다.
         IntStream fromRange2 = IntStream.rangeClosed(10, 20); // 20이 포함되어 만들어진다.
 
+        // 위에 만들어진 값은 원시 타입에 Stream 지원을 해준 것이다.
+        // 하지만  int 자체로는 Collection 에 담지 못하기 떄문에 Integer 로 변환하여 toArray() 를 사용해야한다.
         Stream<Integer> fromRangeBox = fromRange1.boxed();
         var fromRangeBox_Arr = fromRangeBox.toArray();
 
