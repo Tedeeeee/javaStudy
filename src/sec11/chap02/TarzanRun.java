@@ -17,7 +17,10 @@ public class TarzanRun implements Runnable{
                 System.out.printf((lyric) + "%n",i, Thread.currentThread().getName(),
                         i * 10, (i + 1) * 10);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                //throw new RuntimeException(e);
+                System.out.println("무슨일이세요?");
+                // return 을 적어주면 멈춘다. 반대로 적어주지 않는다면 멈추지 않고 계속된다.
+                return;
             }
         }
     }
