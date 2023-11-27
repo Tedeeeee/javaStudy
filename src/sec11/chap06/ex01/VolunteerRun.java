@@ -24,5 +24,25 @@ public class VolunteerRun implements Runnable{
                 "🪣 %d번 지원자 시작 (현재 %d명 펌핑중, 남은 물 %d)%n",
                 no, working, cave.getWater()
         );
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            // return 이 없다면 shutdownNow 를 해도 중단되지 않는다.
+            working--;
+
+            System.out.printf(
+                    "🛑 %d번 지원자 중단 (현재 %d명 펌핑중, 남은 물 %d)%n",
+                    no, working, cave.getWater()
+            );
+            return;
+        }
+
+        cave.pump();
+        working--;
+        System.out.printf(
+                "✅ %d번 지원자 완료 (현재 %d명 펌핑중, 남은 물 %d)%n",
+                no, working, cave.getWater()
+        );
     }
 }
